@@ -1,4 +1,5 @@
 from django.views import View
+from django.http import HttpResponse
 from shopapp.models import Client, Order
 from datetime import datetime, timedelta
 from django.views.generic import TemplateView
@@ -85,10 +86,7 @@ def get_list_products_by_customer(request, name_client: str):
         ]
     }
 
-    return render(request,
-                  "shopapp/get_list_products_by_customer.html",
-                  context)
-
+    return render(request, "shopapp/get_list_products_by_customer.html", context)
 
 
 def page_not_found(request, exception):
