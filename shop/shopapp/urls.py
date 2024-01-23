@@ -1,5 +1,5 @@
 from django.urls import path
-from shop.shop.shopapp.views import get_all_list_order, get_list_products_by_customer
+from shopapp.views import get_all_list_order, get_list_products_by_customer
 
 app_name = 'shopapp'
 
