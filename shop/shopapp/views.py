@@ -7,13 +7,10 @@ from django.shortcuts import render, get_object_or_404
 
 
 
-def get_all_list_order(request,
-                                                     name_client: str):
-    client = \
-        Client.objects.filter(name=name_client).first()
+def get_all_list_order(request,name_client: str):
+    client = Client.objects.filter(name=name_client).first()
 
-    orders = \
-        Order.objects.filter(client=client).all()
+    orders = Order.objects.filter(client=client).all()
 
     context = {
         "name_client": name_client,
@@ -33,12 +30,10 @@ def for_sort_products_in_ordered(date_time_placing_order: datetime,
                 list_products.append(one_product)
 
 
-def get_list_products_by_customer(request,
-                                                                 name_client: str):
+def get_list_products_by_customer(request, name_client: str):
     client = Client.objects.filter(name=name_client).first()
 
-    orders = \
-        Order.objects.filter(client=client).all()
+    orders = Order.objects.filter(client=client).all()
 
     current_datetime = datetime.now()
 
@@ -52,8 +47,7 @@ def get_list_products_by_customer(request,
     year_ago_list_product: list = []
 
     for order in orders:
-        date_time_placing_order: datetime = \
-            order.date_time_placing_order.replace(tzinfo=None)
+        date_time_placing_order: datetime = order.date_time_placing_order.replace(tzinfo=None)
 
         for_sort_products_in_ordered(list_products=
                                      seven_days_ago_list_product,
