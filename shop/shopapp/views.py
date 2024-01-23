@@ -1,11 +1,13 @@
 from django.views import View
-from django.http import HttpResponse
 from shopapp.models import Client, Order
 from datetime import datetime, timedelta
 from django.views.generic import TemplateView
+from django.http import HttpResponse
 
 from django.shortcuts import render, get_object_or_404
 
+def hello(request):
+    return HttpResponse('Привет!')
 
 
 def get_all_list_order(request,name_client: str):
